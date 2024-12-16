@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Mart - Seller Page</title>
+    <link rel="stylesheet" href="buyerpage.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <img src="/final_photos/logo.png" alt="Field Mart Logo">
+        </div>
+        <div class="center-section">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="../home_page/home.html">Home</a></li> <!-- "Home" is no longer bold -->
+                    <li><a href="#footer">About</a></li> <!-- Link to footer -->
+                    <li><a href="../seller page/sellerpage.html">Seller</a></li>
+                    <li><a href="../Buyer page/buyerpage.html" class="active">Buyer</a></li> <!-- Add class to "Buyer" -->
+                  </ul>
+                  
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for products...">
+                <button id="search-btn"><i class="fa fa-search"></i> Search</button>
+            </div>
+        </div>
+        <div class="auth-links">
+            <button class="auth-btn sign-in">Sign In</button>
+            <button class="auth-btn sign-up">Sign Up</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-banner">
+            <h1>Order in bulk today and keep your customers coming back for more!</h1>
+            <p>Stock your shelves with the freshest produce straight from local farms</p>
+        </div>
+        <div class="hero-banner">
+            <h1>Looking for high-quality fruits and vegetables to meet your retail needs?</h1>
+            <p>Our platform connects you with local sellers, offering the freshest produce at competitive prices</p>
+        </div>
+        <div class="hero-banner">
+            <h1>Boost your retail offerings with farm-direct fruits and vegetables</h1>
+            <p> Shop in bulk and get the freshest stock at prices that support your bottom line.</p>
+        </div>
+    </section>
+
+    <!-- Seller Section -->
+    <section class="seller-details">
+        <div class="seller-form">
+            <h2>Buyer Details</h2>
+            <form>
+                <label for="Buyer Name">Buyer Name:</label>
+                <input type="text" id="seller-name" placeholder="Enter your name">
+
+                <label for="Buyer-id">Buyer ID:</label>
+                <input type="text" id="seller-id" placeholder="Enter your ID">
+
+                <label for="bank-details">Bank Details:</label>
+                <input type="text" id="bank-details" placeholder="Enter bank details">
+
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" placeholder="Enter your contact">
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Enter your address">
+
+                <div class="form-buttons">
+                    <button type="button" class="edit-button">+ Edit</button>
+                    <button type="submit" class="ok-button">OK</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Buttons Section -->
+    <div class="action-button">
+          <form action="../cart/cart.html" method="get">
+            <button type="submit">View my cart</button>
+          </form>
+          <form action="../track order/track.html" method="get">
+            <button type="submit">Track My Order</button>
+          </form>
+          <form action="../my bid request M/my bid request.html" method="get">
+            <button type="submit">My Bid Request</button>
+          </form>
+          
+        </div>
+   <!-- Footer Section -->
+   <footer class="footer" id="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>About Us</h4>
+            <p>Field Mart is your trusted marketplace for fresh and organic produce.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href='../seller page/sellerpage.html'>Seller</a></li>
+                <li><a href="#">Buyer</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Contact Us</h4>
+            <p>Email: support@fieldmart.com</p>
+            <p>Phone: +94 123 456 789</p>
+        </div>
+        <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Field Mart. All Rights Reserved.</p>
+    </div>
+</footer>
+    <script src="buyerpage.js"></script>
+</body>
+</html>

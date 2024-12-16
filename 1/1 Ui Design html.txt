@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="language-container">
+        <div class="language-card">
+            <img src="logo.png" alt="Field Mart Logo" class="logo">
+            <h1>Language</h1>
+            <p>Select your language</p>
+            <div class="language-buttons">
+                <button class="language-btn" onclick="selectLanguage('Sinhala')">Sinhala</button>
+                <button class="language-btn" onclick="selectLanguage('English')">English</button>
+                <button class="language-btn" onclick="selectLanguage('Tamil')">Tamil</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

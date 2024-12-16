@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Order UI</title>
+  <link rel="stylesheet" href="uisixstyle.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <span class="logo">FieldMart</span>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Seller</a></li>
+        <li><a href="#" class="active">Buyer</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="#">Sign In</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </nav>
+  <main>
+    <div class="product-section">
+      <div class="product-image">
+  <div class="image-frame">
+    <img src="sample-rice.jpg" alt="Samba Rice">
+  </div>
+  <p class="image-caption">Samba Rice</p> <!-- Caption below the image -->
+</div>
+      <div class="product-details">
+        <p><strong>Order ID:</strong> S2003</p>
+        <p><strong>Order Item:</strong> Samba Rice</p>
+        <p><strong>City:</strong> Kurunegala</p>
+        <p><strong>Selling price:</strong> Rs 40,000 /-</p>
+        <p><strong>QTY Available:</strong> 170 KG</p>
+        <p><strong>Seller:</strong> Araliya Sahal</p>
+        <p><strong>Deliver Date:</strong> 02.11.2034</p>
+        <div class="quantity-section">
+          <p><strong>QTY:</strong></p>
+          <button id="decrement">-</button>
+          <input type="number" id="quantityInput" value="90">
+          <button id="increment">+</button>
+        </div>
+        <p class="note">Price will be Rs 180/- per kilo for every kilo after 50kg</p>
+        <div class="action-buttons">
+          <button onclick="window.location.href='file:///C:/Users/User/Desktop/Codes/cart/cart.html'">Add to Cart</button>
+          <button id="buyNow">Buy Now</button>
+          <button onclick="window.location.href='file:///C:/Users/User/Desktop/Codes/buyer%20bidding/buyerbidding.html'">Bid</button>
+          <button onclick="window.location.href='file:///C:/Users/User/Desktop/Codes/5/uifive.html'">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="uisixscript.js"></script>
+</body>
+</html>

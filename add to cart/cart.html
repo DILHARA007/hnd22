@@ -1,0 +1,71 @@
+<!-- HTML: buyer_cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Field</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Seller</a></li>
+            <li><a href="#">Buyer</a></li>
+        </ul>
+        <div class="auth-links">
+            <a href="#">Sign In</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <h1>My Cart</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Remove</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><button class="remove-btn">-</button></td>
+                    <td><img src="samba_rice.jpg" alt="Samba Rice"></td>
+                    <td>Samba Rice</td>
+                    <td><input type="number" value="10" min="1" step="1"> kg</td>
+                    <td>Rs. 40,000</td>
+                </tr>
+                <tr>
+                    <td><button class="remove-btn">-</button></td>
+                    <td><img src="tomato.jpg" alt="Tomato"></td>
+                    <td>Tomato</td>
+                    <td><input type="number" value="13" min="1" step="1"> kg</td>
+                    <td>Rs. 25,000</td>
+                </tr>
+                <tr>
+                    <td><button class="remove-btn">-</button></td>
+                    <td><img src="broccoli.jpg" alt="Broccoli"></td>
+                    <td>Broccoli</td>
+                    <td><input type="number" value="7" min="1" step="1"> kg</td>
+                    <td>Rs. 32,000</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <p>Cart Total: Rs. 800,000</p>
+            <p>Shipping Fee: Rs. 500</p>
+            <p>Total: Rs. 126,000</p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

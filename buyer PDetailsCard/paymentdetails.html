@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Details</title>
+  <link rel="stylesheet" href="paymentdetails.css">
+  <link rel="stylesheet" href="header.css">
+
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+        <img src="/final_photos/logo.png" alt="Field Mart Logo">
+    </div>
+    <div class="center-section">
+        <nav class="navbar">
+            <ul>
+                <li><a href="../home_page/home.html">Home</a></li>
+                <li><a href="#footer">About</a></li> <!-- Link to footer -->
+                <li><a href="../seller page/sellerpage.html">Seller</a></li>
+                <li><a href="../Buyer page/buyerpage.html">Buyer</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button id="search-btn"><i class="fa fa-search"></i> Search</button>
+        </div>
+    </div>
+    <div class="auth-links">
+        <button class="auth-btn sign-in">Sign In</button>
+        <button class="auth-btn sign-up">Sign Up</button>
+    </div>
+</header>
+  <!-- Main Payment Section -->
+  <main>
+    <section class="payment-container">
+      <h1>Payment Details</h1>
+      <div class="payment-method">
+        <label><strong>Payment Method:</strong></label>
+        <label><input type="radio" name="payment" checked> Card Payment</label>
+        <label><input type="radio" name="payment" disabled> Bank Transfer</label>
+      </div>
+      <form>
+        <label for="card-number">Card No:</label>
+        <input type="text" id="card-number" placeholder="Enter card number" required>
+
+        <label for="expiry-date">Expire Date:</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="123" required>
+        <br>
+        
+          
+          <div class="action-buttons">
+              <button class="action-buttons" onclick="window.location.href='../payment sucessss/Payementsuccessful.html'">Pay</button>
+              <button class="action-buttons" onclick="window.location.href='../cart/cart.html'">Cancel</button>
+          </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="paymentdetails.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Order UI</title>
+  <link rel="stylesheet" href="uisixstyle.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <span class="logo">FieldMart</span>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Seller</a></li>
+        <li><a href="#" class="active">Buyer</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="#">Sign In</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </nav>
+  <main>
+    <div class="product-section">
+      <div class="product-image">
+        <div class="image-frame" id="image-container">
+          <img src="placeholder.jpg" alt="Product Image" id="product-image">
+        </div>
+        <p class="image-caption" id="productName">Loading...</p>
+      </div>
+      <div class="product-details">
+        <p><strong>Order ID:</strong> <span id="orderId">Loading...</span></p>
+        <p><strong>Order Item:</strong> <span id="orderItem">Loading...</span></p>
+        <p><strong>City:</strong> <span id="city">Loading...</span></p>
+        <p><strong>Selling Price:</strong> Rs <span id="sellingPrice">Loading...</span> /-</p>
+        <p><strong>QTY Available:</strong> <span id="qtyAvailable">Loading...</span> KG</p>
+        <p><strong>Seller:</strong> <span id="sellerName">Loading...</span></p>
+        <p><strong>Deliver Date:</strong> <span id="deliverDate">Loading...</span></p>
+        <div class="quantity-section">
+          <p><strong>QTY:</strong></p>
+          <button id="decrement">-</button>
+          <input type="number" id="quantityInput" value="1" min="1">
+          <button id="increment">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button id="addToCartBtn">Add to Cart</button>
+      <button id="buyNowBtn">Buy Now</button>
+      <button id="bidBtn">Bid</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </main>
+  <script src="uisixscriptdynamic.js"></script>
+</body>
+</html>

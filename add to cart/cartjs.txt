@@ -1,0 +1,168 @@
+// JavaScript: buyer_cart.js
+
+// Example product data (replace with fetched data from the backend)
+const cartItems = [
+    {
+        id: 1,
+        name: 'Samba Rice',
+        image: 'samba_rice.jpg',
+        price: 4000,
+        quantity: 10,
+        unit: 'kg'
+    },
+    {
+        id: 2,
+        name: 'Tomato',
+        image: 'tomato.jpg',
+        price: 2500,
+        quantity: 13,
+        unit: 'kg'
+    },
+    {
+        id: 3,
+        name: 'Broccoli',
+        image: 'broccoli.jpg',
+        price: 3200,
+        quantity: 7,
+        unit: 'kg'
+    }
+];
+
+// DOM Elements
+const cartTableBody = document.querySelector('.cart-table tbody');
+const cartSummary = document.querySelector('.cart-summary');
+
+// Functions
+function renderCart() {
+    cartTableBody.innerHTML = '';
+    let cartTotal = 0;
+
+    cartItems.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        cartTotal += itemTotal;
+
+        const row = `
+            <tr data-id="${item.id}">
+                <td><button class="remove-btn">-</button></td>
+                <td><img src="${item.image}" alt="${item.name}"></td>
+                <td>${item.name}</td>
+                <td><input type="number" value="${item.quantity}" min="1" step="1"> ${item.unit}</td>
+                <td>Rs. ${itemTotal.toLocaleString()}</td>
+            </tr>
+        `;
+        cartTableBody.innerHTML += row;
+    });
+
+    const shippingFee = calculateShipping();
+    const total = cartTotal + shippingFee;
+
+    cartSummary.innerHTML = `
+        <p>Cart Total: Rs. ${cartTotal.toLocaleString()}</p>
+        <p>Shipping Fee: Rs. ${shippingFee.toLocaleString()}</p>
+        <p>Total: Rs. ${total.toLocaleString()}</p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    `;
+
+    attachEventListeners();
+}
+
+function calculateShipping() {
+    // Placeholder for shipping fee calculation based on location
+    const distance = 10; // Example: 10 km
+    const ratePerKm = 50;
+    return distance * ratePerKm;
+}
+
+function updateQuantity(productId, newQuantity) {
+    const item = cartItems.find(item => item.id === productId);
+    if (item) {
+        item.quantity = newQuantity;
+        renderCart();
+    }
+}
+
+function removeItem(productId) {
+    const itemIndex = cartItems.findIndex(item => item.id === productId);
+    if (itemIndex !== -1) {
+        cartItems.splice(itemIndex, 1);
+        renderCart();
+    }
+}
+
+function proceedToCheckout() {
+    // Example: Redirect to checkout and send cart data to backend
+    const orderDetails = {
+        items: cartItems,
+        cartTotal: cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
+        shippingFee: calculateShipping(),
+        total: cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + calculateShipping()
+    };
+
+    console.log('Order Details:', orderDetails);
+    alert('Proceeding to checkout!');
+    // Implement backend call or redirection here
+}
+
+// Event Listeners
+function attachEventListeners() {
+    // Remove item
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productId = parseInt(event.target.closest('tr').dataset.id, 10);
+            removeItem(productId);
+        });
+    });
+
+    // Update quantity
+    const quantityInputs = document.querySelectorAll('.cart-table input[type="number"]');
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', (event) => {
+            const productId = parseInt(event.target.closest('tr').dataset.id, 10);
+            const newQuantity = parseInt(event.target.value, 10);
+            updateQuantity(productId, newQuantity);
+        });
+    });
+
+    // Checkout button
+    const checkoutButton = document.querySelector('.checkout-btn');
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', proceedToCheckout);
+    }
+}
+
+// Initialize Cart
+renderCart();
+
+function fetchCartItems() {
+    fetch('fetch_cart.php')
+        .then(response => response.json())
+        .then(data => {
+            cartItems.length = 0; // Clear the existing array
+            cartItems.push(...data); // Add fetched items to the array
+            renderCart(); // Render the updated cart
+        })
+        .catch(error => console.error('Error fetching cart items:', error));
+}
+
+
+// Call this function when the cart page loads
+window.onload = fetchCartItems;
+
+// Function to render cart items (implement this as per your cart's structure)
+function renderCart(items) {
+    const cartContainer = document.getElementById('cart-items');
+    cartContainer.innerHTML = ''; // Clear previous items
+
+    items.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.innerHTML = `
+            <img src="${item.product_image}" alt="${item.product_name}">
+            <h4>${item.product_name}</h4>
+            <p>Price: $${item.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <button onclick="removeItem(${item.id})">Remove</button>
+        `;
+        cartContainer.appendChild(itemElement);
+    });
+}

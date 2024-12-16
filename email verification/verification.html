@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+  <link rel="stylesheet" href="veristyle.css">
+</head>
+<body>
+  <!-- Pop-up -->
+  <div id="emailVerificationPopup" class="popup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Email Verification Required</h2>
+      <p>
+        To complete your registration, we’ve sent a verification link to your email.
+      </p>
+      <p>
+        Didn’t receive the email? 
+        <a href="#" id="resendEmailLink">Resend verification email</a>
+        
+        <div class="action-buttons">
+          <form action="../home_page/home.html" method="get">
+            <button type="submit">OK</button>
+          </form> 
+
+      </p>
+    </div>
+  </div>
+
+  <script src="veriscript.js"></script>
+</body>
+</html>

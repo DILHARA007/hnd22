@@ -1,0 +1,110 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d8860a; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #f7e2b5; /* Light beige box */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 600px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if screen width is too small */
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+.input-box {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: right;
+    background-color: #ddd; /* Light gray inputs */
+}
+
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ddd; /* Light gray dropdown */
+}
+
+span {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent spans from breaking into multiple lines */
+}
+
+/* Rs Label Styling */
+.rs-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px; /* Adjust spacing to align with dropdown box */
+    white-space: nowrap;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.add-range {
+    background-color: #d9534f; /* Red button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-range:hover {
+    background-color: #c9302c;
+}
+
+.ok-button {
+    background-color: #fff; /* White button */
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ok-button:hover {
+    background-color: #ddd;
+}

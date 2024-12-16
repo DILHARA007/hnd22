@@ -1,0 +1,61 @@
+// Function to go back to the previous page
+function goBack() {
+    window.history.back();
+}
+
+// Function to fetch product data dynamically
+async function fetchProductData(productID) {
+    try {
+        const response = await fetch(`getProductData.php?id=${productID}`);
+        const data = await response.json();
+
+        // Check for errors or no product data
+        if (data.error) {
+            document.getElementById("product-view").innerHTML = `<p>${data.error}</p>`;
+            return;
+        }
+
+        // Call function to populate the product data
+        populateProductView(data);
+    } catch (error) {
+        console.error("Error fetching product data:", error);
+    }
+}
+
+// Function to populate the product view with dynamic data
+function populateProductView(data) {
+    const productView = document.getElementById("product-view");
+    productView.innerHTML = "";  // Clear any existing content
+
+    // Add retail price section
+    const retailRow = document.createElement("div");
+    retailRow.className = "row";
+    retailRow.innerHTML = `
+        <label>Retail price</label>
+        <span class="output-box">${data.retailPrice.value}</span>
+        <span>${data.retailPrice.unit}</span>
+        <span class="rs-label">Rs</span>
+        <span class="output-box">${data.retailPrice.value}</span>
+    `;
+    productView.appendChild(retailRow);
+
+    // Dynamically create rows for price ranges
+    data.priceRanges.forEach((range) => {
+        const rangeRow = document.createElement("div");
+        rangeRow.className = "row";
+        rangeRow.innerHTML = `
+            <label>Price</label>
+            <span>From</span>
+            <span class="output-box">${range.from}</span>
+            <span>${range.unit}</span>
+            <span>TO</span>
+            <span class="output-box">${range.to}</span>
+            <span>${range.unit}</span>
+            <span class="output-box">${range.price}</span>
+        `;
+        productView.appendChild(rangeRow);
+    });
+}
+
+// Example: Fetch and populate data for a product (e.g., product ID 1)
+fetchProductData(1);

@@ -1,0 +1,70 @@
+// Fetch product details dynamically based on order ID
+async function fetchOrderDetails(orderID) {
+    try {
+        const response = await fetch(`getOrderDetails.php?order_id=${orderID}`);
+        const data = await response.json();
+
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+
+        // Update placeholders with dynamic data
+        document.getElementById('orderId').textContent = data.order_id;
+        document.getElementById('orderItem').textContent = data.item_name;
+        document.getElementById('city').textContent = data.city;
+        document.getElementById('sellingPrice').textContent = data.selling_price;
+        document.getElementById('qtyAvailable').textContent = data.qty_available;
+        document.getElementById('sellerName').textContent = data.seller_name;
+        document.getElementById('deliverDate').textContent = data.deliver_date;
+
+        // Update the image
+        const productImage = document.getElementById('product-image');
+        productImage.src = data.image_url || 'placeholder.jpg';
+        productImage.alt = data.item_name;
+
+        // Set max quantity for the input
+        document.getElementById('quantityInput').setAttribute('max', data.qty_available);
+
+        setupQuantityHandlers(data.qty_available);
+    } catch (error) {
+        console.error('Error fetching order details:', error);
+    }
+}
+
+// Setup quantity increment and decrement handlers
+function setupQuantityHandlers(maxQty) {
+    const quantityInput = document.getElementById('quantityInput');
+    const incrementBtn = document.getElementById('increment');
+    const decrementBtn = document.getElementById('decrement');
+
+    incrementBtn.addEventListener('click', () => {
+        let currentQty = parseInt(quantityInput.value);
+        if (currentQty < maxQty) quantityInput.value = currentQty + 1;
+    });
+
+    decrementBtn.addEventListener('click', () => {
+        let currentQty = parseInt(quantityInput.value);
+        if (currentQty > 1) quantityInput.value = currentQty - 1;
+    });
+
+    quantityInput.addEventListener('input', () => {
+        let currentQty = parseInt(quantityInput.value);
+        if (currentQty > maxQty) quantityInput.value = maxQty;
+        else if (currentQty < 1 || isNaN(currentQty)) quantityInput.value = 1;
+    });
+}
+
+// Handle "Add to Cart" button click
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const selectedQty = document.getElementById('quantityInput').value;
+    alert(`Added ${selectedQty} KG to cart.`);
+});
+
+// Handle "Cancel" button click
+document.getElementById('cancelBtn').addEventListener('click', () => {
+    alert('Order cancelled.');
+});
+
+// Initialize with a sample order ID (replace this with the actual ID)
+fetchOrderDetails(1);
